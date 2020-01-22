@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css?family=Muli|Ubuntu&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Muli', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+p{
+  text-align: start;
+}
+
+div.para>h1
+{
+  font-family: 'Ubuntu', sans-serif;
+  color: darkred;
+  text-align: left;
+}
+
+div.para>div{
+ padding: 10px; 
+  background-color:hsl(0, 0%, 94%);
+}
+
+.para {
+  
+  margin-top: 5px;
+  padding: 15px;
+  background-color:hsl(0, 0%, 94%);
+  margin: 0 auto;
+}
+
+.para1 {
+  margin-top: 5px;
+ padding-left: 10px;
+ padding-right: 10px;
+  margin-bottom: 5px;
+  margin: 0 auto;
+  border-top: solid rgb(173, 156, 156) 1px;
+  width: 95%;
+  float: left;
+}
+.wrapper {
+  position:relative;
+}
+
+a:active{
+  color: indigo;
+}
+
+.article-list,
+.app2{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  margin: 0 auto;
+  width: 90%;
+  
+}
+
+h4{
+    font-family: 'Ubuntu', sans-serif;
+    color: darkred;
+    text-align: left;
+}
+
+/* unvisited link */
+a:link {
+  text-decoration: none;
+
+}
+
+/* visited link */
+a:visited {
+  text-decoration: none;
+
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration: none;
+
+}
+
+/* selected link */
+a:active {
+  text-decoration: none;
+}
+
