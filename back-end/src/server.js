@@ -30,3 +30,6 @@ app.post('/api/articles/:name/upvote', (req, res) => {
 
 app.listen(8000, ()=> console.log('Listening on the port 8000'))
 
+//install nodemon
+//see package.json 
+//backend prompt npm start
