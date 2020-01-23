@@ -16,6 +16,8 @@
     "@babel/core": "^7.8.3",
     "@babel/node": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
-    "babel-node": "0.0.1-security"
+    "babel-node": "0.0.1-security",
+    "body-parser": "^1.19.0",
+    "nodemon": "^2.0.2"
   }
 }
