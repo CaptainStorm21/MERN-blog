@@ -4,6 +4,7 @@ import ArticlesList from './ArticlesList';
 import "../index.css";
 
 const ArticlePage = ({ match }) => {
+
   const name = match.params.name;
   const article = articleContent.find(article => article.name === name);
 
