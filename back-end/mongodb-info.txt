@@ -1,0 +1,25 @@
+download mongodb 
+cd C:\Program Files\MongoDB\Server\4.2\bin 
+> mongod
+//starts mongodb server
+create c:/data and db folder
+//retype mongod
+//this will create a start a new database
+//open a new terminal
+mongo
+//to list all db 
+show dbsshow
+//create a new db
+use <name of the db>
+//t0 create data record
+db.articles.insert([{ 
+key: 'pair'}])
+//to view all your records inserted 
+db.articles.find({})
+//to view in more readable format
+db.articles.find({}).pretty()
+//to find specific record
+db.articles.find({ name: 'learn-react' }).pretty()
+//if you need to find one record
+db.articles.find({ name: 'learn-react' })
+//to exit control+c
