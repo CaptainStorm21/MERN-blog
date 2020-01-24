@@ -1,32 +1,53 @@
-import React from "react";
-import articleContent from "./article-content";
-import ArticlesList from './ArticlesList';
-import "../index.css";
+
+import React, { useState, useEffect } from 'react';
+import ArticlesList from '../pages/ArticlesList';
+import CommentsList from '../pages/CommentsList';
+import UpvotesSection from '../pages/UpvotesSection';
+import AddCommentForm from '../pages/AddCommentForm';
+import NotFoundPage from './NotFoundPage';
+import articleContent from './article-content';
 
 const ArticlePage = ({ match }) => {
+    const name = match.params.name;
+    const article = articleContent.find(article => article.name === name);
 
-  const name = match.params.name;
-  const article = articleContent.find(article => article.name === name);
+    const [articleInfo, setArticleInfo] = useState({ upvotes: 0, comments: [] });
 
-  //filtering all articles that are not listed
-  const otherArticles = articleContent.filter(article => article.name !== name);
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(`/api/articles/${name}`);
+            const body = await result.json();
+            setArticleInfo(body);
+        }
+        fetchData();
+    }, [name]);
 
-  if (!article) return <h1> Article does not exist</h1>;
-  return (
-    <div className="app2">
-      <h1>{article.title}</h1>
-      <div className="para">
+    if (!article) return <NotFoundPage />
+
+    const otherArticles = articleContent.filter(article => article.name !== name);
+
+    return (
+        <>
+        <h1>{article.title}</h1>
+        <UpvotesSection articleName={name} upvotes={articleInfo.upvotes} setArticleInfo={setArticleInfo} />
         {article.content.map((paragraph, key) => (
-          <p key={key}> {paragraph} </p>
-        ))}       
-         </div>
-        <div className="wrapper">
-          <h3> Other Articles: </h3>
-          <ArticlesList articles={otherArticles} />
-
-      </div>
-    </div>
-  );
-};
+            <p key={key}>{paragraph}</p>
+        ))}
+        <CommentsList comments={articleInfo.comments} />
+        <AddCommentForm articleName={name} setArticleInfo={setArticleInfo} />
+        <h3>Other Articles:</h3>
+        <ArticlesList articles={otherArticles} />
+        </>
+    );
+}
 
 export default ArticlePage;
+
+  /*
+  articleInfo - going to get populate by sending a req to the server
+  setArticleInfo - we cann call to change the valie of articleInfo
+  usesState()- the initial value of articleinfo before we have loaded any datate or changed the state
+
+  usEffect gives us a place to perform all the sideeffects of our pages . 
+  in our fetching data setting the state with the result 
+  */
